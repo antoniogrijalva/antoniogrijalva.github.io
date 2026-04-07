@@ -1,59 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" >
-
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    
-    <title>Mi plantilla</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Base - Nuestro Movimiento AC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuración opcional de Tailwind (para personalizar colores, etc.)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#3b82f6', // Puedes cambiar este color por el de tu marca (ej. azul-500)
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilo simple para el menú móvil */
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
 
-<body>
-    <div class="container">
-    <div class="col-xs-12">
-            <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-                <img class="backdrop linktree">
-                <h2 style="color: #ffffff; padding-top: 20px;">Mi curso de Git y Github (GitHub Pages)</h2>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-gray-800">
+                <a href="#" class="flex items-center gap-2">
+                    <span class="p-2 bg-brand text-white rounded-full">NM</span>
+                    <span>Nuestro Movimiento <span class="text-sm font-medium text-gray-500">AC</span></span>
+                </a>
             </div>
-    </div>
-    </div>
 
-
-    <div class="container">
-        <p>JOSE ANTONIO GRIJALVA AMAYA</p>
-    <div class="col-xs-12">
-            <div class="text-center">
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='https://platzi.com/cursos/docker-fundamentos/'" type="button" class="btn btn-outline-light shake" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800;">Mi curso de Docker</button>
-                </div>
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='http://aminespinoza.com'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Mi sitio web</button>
-                </div>
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='https://www.linkedin.com/in/aminespinoza/'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Conecta en mi perfil de LinkedIn</button>
-                </div>
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='https://www.instagram.com/aminespinoza10/'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Visitame en Instagram</button>
-                </div>
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='https://www.youtube.com/aminespinoza'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Mira mi canal de Youtube</button>
-                </div>
+            <div class="hidden md:flex items-center gap-8 font-medium text-gray-700">
+                <a href="#" class="hover:text-brand transition duration-300">Inicio</a>
+                <a href="#" class="hover:text-brand transition duration-300">Nosotros</a>
+                <a href="#" class="hover:text-brand transition duration-300">Proyectos</a>
+                <a href="#" class="hover:text-brand transition duration-300">Contacto</a>
+                <a href="#" class="bg-brand text-white px-5 py-2.5 rounded-full text-sm hover:bg-blue-600 transition shadow-sm">Donar Now</a>
             </div>
-    </div>
-    </div>
 
-        <div class="text-center">
-            <a href="https://codepen.io/nightcl4w/pen/dEjreJ" style="color: #34312f;" target="_blank">Creado por OrderMerch</a>
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-gray-700 outline-none hover:text-brand">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden bg-white shadow-inner border-t border-gray-100">
+            <div class="flex flex-col gap-4 p-6 font-medium text-gray-700">
+                <a href="#" class="hover:text-brand py-2">Inicio</a>
+                <a href="#" class="hover:text-brand py-2">Nosotros</a>
+                <a href="#" class="hover:text-brand py-2">Proyectos</a>
+                <a href="#" class="hover:text-brand py-2">Contacto</a>
+                <a href="#" class="bg-brand text-white text-center px-5 py-3 rounded-xl text-sm hover:bg-blue-600">Donar Now</a>
+            </div>
         </div>
+    </header>
 
+    <main class="flex-grow">
+        
+        <section class="bg-gray-100 py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Construyendo un <span class="text-brand">Mejor Futuro</span> Juntos.
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nuestro Movimiento AC es una organización dedicada al cambio social positivo en Hermosillo. Únete a nuestra causa y sé parte del cambio que queremos ver.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-4 justify-center">
+                    <a href="#" class="bg-brand text-white px-8 py-3.5 rounded-full font-semibold hover:bg-blue-600 transition shadow-lg">Conoce Más</a>
+                    <a href="#" class="bg-white text-gray-900 px-8 py-3.5 rounded-full font-semibold hover:bg-gray-200 transition shadow border border-gray-200">Sumarme como Voluntario</a>
+                </div>
+            </div>
+        </section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!-- This pre-lander was created by Brandon Nilsson -->
-    <!-- You're welcome to edit, reproduce and change this template as long as original contributation stays present on the website at all times.  -->
-</body>
-
-</html>
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Nuestros Pilares</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-blue-100 text-brand rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round"
